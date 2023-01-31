@@ -10,6 +10,7 @@
     {
         [Required]
         [MaxLength(DataConstants.FirstNameMaxLength)]
+        [Display(Name = "Име")]
         public string FirstName { get; set; }
 
         [Required]
