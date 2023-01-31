@@ -23,6 +23,12 @@
         {
         }
 
+        public DbSet<Booking> Bookings { get; set; }
+
+        public DbSet<Baggage> Baggages { get; set; }
+
+        public DbSet<Animal> Animals { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)

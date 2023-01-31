@@ -9,6 +9,12 @@
 
         public const int PhoneNumberMaxLength = 20;
 
+        public const int CountryMaxLength = 20;
+
+        public const int AddressMaxLength = 85;
+
+        public const int CityMaxLength = 85;
+
         // Animal
         public const int BreedMaxLength = 20;
     }

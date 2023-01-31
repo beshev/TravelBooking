@@ -12,6 +12,7 @@ namespace TravelBooking.Data.Models
         public ApplicationUser()
         {
             this.Id = Guid.NewGuid().ToString();
+            this.Bookings = new HashSet<Booking>();
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
@@ -28,6 +29,8 @@ namespace TravelBooking.Data.Models
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        public virtual ICollection<Booking> Bookings { get; set; }
 
         public virtual ICollection<IdentityUserRole<string>> Roles { get; set; }
 
