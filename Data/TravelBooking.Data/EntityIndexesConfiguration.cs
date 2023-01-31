@@ -2,9 +2,8 @@
 {
     using System.Linq;
 
-    using TravelBooking.Data.Common.Models;
-
     using Microsoft.EntityFrameworkCore;
+    using TravelBooking.Data.Common.Models;
 
     internal static class EntityIndexesConfiguration
     {

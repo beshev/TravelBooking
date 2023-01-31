@@ -3,9 +3,8 @@ namespace TravelBooking.Data.Models
 {
     using System;
 
-    using TravelBooking.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
+    using TravelBooking.Data.Common.Models;
 
     public class ApplicationRole : IdentityRole, IAuditInfo, IDeletableEntity
     {

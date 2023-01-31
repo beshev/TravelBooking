@@ -4,11 +4,10 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    using TravelBooking.Common;
-    using TravelBooking.Data.Models;
-
     using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.DependencyInjection;
+    using TravelBooking.Common;
+    using TravelBooking.Data.Models;
 
     internal class RolesSeeder : ISeeder
     {

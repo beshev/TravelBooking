@@ -1,8 +1,8 @@
 ﻿namespace TravelBooking.Data.Configurations
 {
-    using TravelBooking.Data.Models;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using TravelBooking.Data.Models;
 
     public class ApplicationUserConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {

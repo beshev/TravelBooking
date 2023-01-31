@@ -2,9 +2,8 @@
 {
     using System.Diagnostics;
 
-    using TravelBooking.Web.ViewModels;
-
     using Microsoft.AspNetCore.Mvc;
+    using TravelBooking.Web.ViewModels;
 
     public class HomeController : BaseController
     {

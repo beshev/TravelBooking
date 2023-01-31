@@ -2,17 +2,6 @@
 {
     using System.Reflection;
 
-    using TravelBooking.Data;
-    using TravelBooking.Data.Common;
-    using TravelBooking.Data.Common.Repositories;
-    using TravelBooking.Data.Models;
-    using TravelBooking.Data.Repositories;
-    using TravelBooking.Data.Seeding;
-    using TravelBooking.Services.Data;
-    using TravelBooking.Services.Mapping;
-    using TravelBooking.Services.Messaging;
-    using TravelBooking.Web.ViewModels;
-
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
@@ -20,6 +9,15 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using TravelBooking.Data;
+    using TravelBooking.Data.Common;
+    using TravelBooking.Data.Common.Repositories;
+    using TravelBooking.Data.Models;
+    using TravelBooking.Data.Repositories;
+    using TravelBooking.Data.Seeding;
+    using TravelBooking.Services.Mapping;
+    using TravelBooking.Services.Messaging;
+    using TravelBooking.Web.ViewModels;
 
     public class Program
     {
@@ -64,7 +62,6 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
-            services.AddTransient<ISettingsService, SettingsService>();
         }
 
         private static void Configure(WebApplication app)

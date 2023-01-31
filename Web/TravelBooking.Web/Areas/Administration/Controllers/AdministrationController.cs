@@ -1,13 +1,12 @@
 ﻿namespace TravelBooking.Web.Areas.Administration.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
     using TravelBooking.Common;
     using TravelBooking.Web.Controllers;
 
-    using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Mvc;
-
     [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
-    [Area("Administration")]
+    [Area(GlobalConstants.AdministrationArea)]
     public class AdministrationController : BaseController
     {
     }

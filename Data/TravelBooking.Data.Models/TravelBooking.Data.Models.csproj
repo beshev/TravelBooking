@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\TravelBooking.Common\TravelBooking.Common.csproj" />
     <ProjectReference Include="..\TravelBooking.Data.Common\TravelBooking.Data.Common.csproj" />
   </ItemGroup>
   

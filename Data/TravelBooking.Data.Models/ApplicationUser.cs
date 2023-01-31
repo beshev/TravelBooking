@@ -4,9 +4,8 @@ namespace TravelBooking.Data.Models
     using System;
     using System.Collections.Generic;
 
-    using TravelBooking.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
+    using TravelBooking.Data.Common.Models;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
@@ -17,6 +16,8 @@ namespace TravelBooking.Data.Models
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
         }
+
+        public int Rate { get; set; }
 
         // Audit info
         public DateTime CreatedOn { get; set; }

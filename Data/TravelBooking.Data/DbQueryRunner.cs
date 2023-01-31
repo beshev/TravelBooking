@@ -3,9 +3,8 @@
     using System;
     using System.Threading.Tasks;
 
-    using TravelBooking.Data.Common;
-
     using Microsoft.EntityFrameworkCore;
+    using TravelBooking.Data.Common;
 
     public class DbQueryRunner : IDbQueryRunner
     {
