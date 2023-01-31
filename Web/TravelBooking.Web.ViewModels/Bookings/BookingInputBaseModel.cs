@@ -3,8 +3,10 @@
     using System.ComponentModel.DataAnnotations;
 
     using TravelBooking.Common;
+    using TravelBooking.Data.Models;
+    using TravelBooking.Services.Mapping;
 
-    public class BookingInputBaseModel
+    public class BookingInputBaseModel : IMapTo<Booking>
     {
         [Required]
         [MaxLength(DataConstants.FirstNameMaxLength)]
@@ -42,6 +44,8 @@
         [MaxLength(DataConstants.CityMaxLength)]
         public string DestinationCity { get; set; }
 
-        public string UserId { get; set; }
+        public string ApplicationUserId { get; set; }
+
+        public AnimaInputModel Animal { get; set; }
     }
 }

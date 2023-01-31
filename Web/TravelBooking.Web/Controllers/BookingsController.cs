@@ -1,19 +1,32 @@
 ﻿namespace TravelBooking.Web.Controllers
 {
+    using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Mvc;
+    using TravelBooking.Services.Data.Bookings;
+    using TravelBooking.Web.Infrastructure.Extensions;
     using TravelBooking.Web.ViewModels.Bookings;
 
     public class BookingsController : BaseController
     {
+        private readonly IBookingsService bookingsService;
+
+        public BookingsController(IBookingsService bookingsService)
+        {
+            this.bookingsService = bookingsService;
+        }
+
         public IActionResult Travel()
         {
             return this.View();
         }
 
         [HttpPost]
-        public IActionResult Travel(BookingInputBaseModel model)
+        public async Task<IActionResult> Travel(BookingInputBaseModel model)
         {
-            return this.View();
+            model.ApplicationUserId = this.User.GetUserId();
+            await this.bookingsService.CreateBookingAsync(model);
+            return this.RedirectToAction(nameof(this.Travel));
         }
 
         public IActionResult Anima()

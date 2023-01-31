@@ -15,6 +15,7 @@
     using TravelBooking.Data.Models;
     using TravelBooking.Data.Repositories;
     using TravelBooking.Data.Seeding;
+    using TravelBooking.Services.Data.Bookings;
     using TravelBooking.Services.Mapping;
     using TravelBooking.Services.Messaging;
     using TravelBooking.Web.ViewModels;
@@ -62,6 +63,7 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
+            services.AddTransient<IBookingsService, BookingsService>();
         }
 
         private static void Configure(WebApplication app)

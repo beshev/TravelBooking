@@ -1,16 +1,14 @@
 ﻿namespace TravelBooking.Web.ViewModels.Bookings
 {
-    using System.ComponentModel.DataAnnotations;
+    using TravelBooking.Data.Models;
+    using TravelBooking.Services.Mapping;
 
-    public class BaggageInputModel : BookingInputBaseModel
+    public class BaggageInputModel : IMapTo<Baggage>
     {
         public double Weight { get; set; }
 
         public double Height { get; set; }
 
         public double Width { get; set; }
-
-        [Required]
-        public string BookingId { get; set; }
     }
 }

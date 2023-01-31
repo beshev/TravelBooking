@@ -6,7 +6,7 @@
     {
         public static string GetUserId(this ClaimsPrincipal principal)
         {
-            return principal.FindFirst(ClaimTypes.NameIdentifier).Value;
+            return principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         }
     }
 }
