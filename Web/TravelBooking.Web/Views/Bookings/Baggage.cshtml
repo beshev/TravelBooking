@@ -1,0 +1,31 @@
+﻿@model BookingInputBaseModel
+
+
+<div class="col-md-4 offset-lg-4 text-center">
+    <form asp-action="Booking" asp-controller="Bookings" asp-area="">
+
+        <partial name="_BookingPartial" model="this.Model" />
+        <hr />
+        Baggage Info
+        <hr />
+        <div class="form-group">
+            <label asp-for="Baggage.Weight"></label>
+            <input asp-for="Baggage.Weight" class="form-control" type="number" min="0" />
+            <span asp-validation-for="Baggage.Weight"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Baggage.Height"></label>
+            <input asp-for="Baggage.Height" class="form-control" type="number" min="0" />
+            <span asp-validation-for="Baggage.Height"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Baggage.Width"></label>
+            <input asp-for="Baggage.Width" class="form-control" type="number" min="0" />
+            <span asp-validation-for="Baggage.Width"></span>
+        </div>
+
+        <div class="form-grup" style="margin-top: 2%;">
+            <input type="submit" class="btn btn-outline-dark" value="Create" />
+        </div>
+    </form>
+</div>

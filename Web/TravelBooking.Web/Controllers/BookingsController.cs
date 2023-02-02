@@ -21,21 +21,7 @@
             return this.View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Travel(BookingInputBaseModel model)
-        {
-            model.ApplicationUserId = this.User.GetUserId();
-            await this.bookingsService.CreateBookingAsync(model);
-            return this.RedirectToAction(nameof(this.Travel));
-        }
-
-        public IActionResult Anima()
-        {
-            return this.View();
-        }
-
-        [HttpPost]
-        public IActionResult Anima(AnimaInputModel model)
+        public IActionResult Animal()
         {
             return this.View();
         }
@@ -46,7 +32,19 @@
         }
 
         [HttpPost]
-        public IActionResult Baggage(BaggageInputModel model)
+        public async Task<IActionResult> Booking(BookingInputBaseModel model, string returnUrl)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(returnUrl);
+            }
+
+            model.ApplicationUserId = this.User.GetUserId();
+            await this.bookingsService.CreateBookingAsync(model);
+            return this.RedirectToAction(nameof(this.SuccessBooking));
+        }
+
+        public IActionResult SuccessBooking()
         {
             return this.View();
         }

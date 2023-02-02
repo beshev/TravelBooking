@@ -1,0 +1,13 @@
+﻿@model BookingInputBaseModel
+
+
+<div class="col-md-4 offset-lg-4 text-center">
+    <form asp-action="Booking" asp-controller="Bookings" asp-area="">
+        <input type="hidden" value="@this." name="returnUrl" />
+        <partial name="_BookingPartial" model="this.Model" />
+
+         <div class="form-grup" style="margin-top: 2%;">
+            <input type="submit" class="btn btn-outline-dark" value="Create" />
+        </div>
+    </form>
+</div>

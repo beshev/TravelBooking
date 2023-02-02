@@ -10,6 +10,7 @@
     {
         [Required]
         [MaxLength(DataConstants.BreedMaxLength)]
+        [Display(Name = GlobalConstants.Breed)]
         public string Breed { get; set; }
     }
 }

@@ -1,0 +1,21 @@
+﻿@model BookingInputBaseModel
+
+
+<div class="col-md-4 offset-lg-4 text-center">
+    <form asp-action="Booking" asp-controller="Bookings" asp-area="">
+
+        <partial name="_BookingPartial" model="this.Model" />
+        <hr />
+        Animal Info
+        <hr />
+        <div class="form-group">
+            <label asp-for="Animal.Breed"></label>
+            <input asp-for="Animal.Breed" class="form-control" />
+            <span asp-validation-for="Animal.Breed"></span>
+        </div>
+
+         <div class="form-grup" style="margin-top: 2%;">
+            <input type="submit" class="btn btn-outline-dark" value="Create" />
+        </div>
+    </form>
+</div>
