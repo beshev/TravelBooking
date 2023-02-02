@@ -33,5 +33,8 @@
         public const string Height = "Височина";
 
         public const string Width = "Широчина";
+
+        // Errors
+        public const string RequiredField = "Полето е задължително";
     }
 }

@@ -8,7 +8,7 @@
 
     public class AnimaInputModel : IMapTo<Animal>
     {
-        [Required]
+        [Required(ErrorMessage = GlobalConstants.RequiredField)]
         [MaxLength(DataConstants.BreedMaxLength)]
         [Display(Name = GlobalConstants.Breed)]
         public string Breed { get; set; }
