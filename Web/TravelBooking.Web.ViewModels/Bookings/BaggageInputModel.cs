@@ -6,7 +6,7 @@
     using TravelBooking.Data.Models;
     using TravelBooking.Services.Mapping;
 
-    public class BaggageInputModel : IMapTo<Baggage>
+    public class BaggageInputModel : IMapTo<Baggage>, IMapFrom<Baggage>
     {
         [Display(Name = GlobalConstants.Weight)]
         public double Weight { get; set; }

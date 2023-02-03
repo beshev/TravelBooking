@@ -6,7 +6,7 @@
     using TravelBooking.Data.Models;
     using TravelBooking.Services.Mapping;
 
-    public class AnimaInputModel : IMapTo<Animal>
+    public class AnimaInputModel : IMapTo<Animal>, IMapFrom<Animal>
     {
         [Required(ErrorMessage = GlobalConstants.RequiredField)]
         [MaxLength(DataConstants.BreedMaxLength)]

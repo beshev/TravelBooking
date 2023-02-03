@@ -1,6 +1,75 @@
-﻿@model TravelBooking.Web.ViewModels.Administration.Dashboard.IndexViewModel
+﻿@model IEnumerable<BookingViewModel>
 @{
     this.ViewData["Title"] = "Admin dashboard";
 }
 
-<h1>@this.ViewData["Title"]</h1>
+
+<table class="table table-striped table-bordered text-center">
+    <thead>
+        <tr>
+            <th scope="col">@GlobalConstants.FirstName</th>
+            <th scope="col">@GlobalConstants.LastName</th>
+            <th scope="col">@GlobalConstants.PhoneNumber</th>
+            <th scope="col">@GlobalConstants.OriginAddress</th>
+            <th scope="col">@GlobalConstants.OriginCity</th>
+            <th scope="col">@GlobalConstants.OriginCountry</th>
+            <th scope="col">@GlobalConstants.DestinationAddress</th>
+            <th scope="col">@GlobalConstants.DestinationCity</th>
+            <th scope="col">@GlobalConstants.DestinationCountry</th>
+            <th scope="col">@GlobalConstants.Breed</th>
+            <th scope="col">@GlobalConstants.Height</th>
+            <th scope="col">@GlobalConstants.Width</th>
+            <th scope="col">@GlobalConstants.Weight</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var booking in this.Model)
+        {
+            <tr>
+                <td>
+                    @booking.FirstName
+                </td>
+                <td>
+                    @booking.LastName
+                </td>
+                <td>
+                    @booking.PhoneNumber
+                </td>
+                <td>
+                    @booking.OriginAddress
+                </td>
+                <td>
+                    @booking.OriginCity
+                </td>
+                <td>
+                    @booking.OriginCountry
+                </td>
+                <td>
+                    @booking.DestinationAddress
+                </td>
+                <td>
+                    @booking.DestinationCity
+                </td>
+                <td>
+                    @booking.DestinationCountry
+                </td>
+                <td>
+                    @(booking.Animal?.Breed ?? "N/A") 
+                </td>
+                <td>
+                    @booking.Baggage?.Height
+                </td>
+                <td>
+                    @booking.Baggage?.Width
+                </td>
+                <td>
+                    @booking.Baggage?.Weight
+                </td>
+                <td>
+                    <a asp-area="@GlobalConstants.AdministrationArea" asp-controller="Dashboard" asp-action="Remove" asp-route-id="@booking.Id">Премахни</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
