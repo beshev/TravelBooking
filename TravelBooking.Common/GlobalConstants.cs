@@ -34,7 +34,11 @@
 
         public const string Width = "Широчина";
 
+        public const string ReturnUrlKey = "ReturnUrl";
+
         // Errors
         public const string RequiredField = "Полето е задължително";
+
+        public const string ModelStateErrorKey = "ModelStateErrors";
     }
 }

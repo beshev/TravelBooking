@@ -1,5 +1,7 @@
 ﻿@model BookingInputBaseModel
 
+<input type="hidden" value="@this.TempData[GlobalConstants.ReturnUrlKey]" name="returnUrl" />
+<div class="text-danger">@this.TempData[GlobalConstants.ModelStateErrorKey]</div>
 <div class="form-group">
     <label asp-for="FirstName"></label>
     <span asp-validation-for="FirstName"></span>
