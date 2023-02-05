@@ -58,5 +58,7 @@
         public AnimaInputModel Animal { get; set; }
 
         public BaggageInputModel Baggage { get; set; }
+
+        public VehicleInputModel Vehicle { get; set; }
     }
 }

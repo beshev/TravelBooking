@@ -29,6 +29,8 @@
 
         public DbSet<Animal> Animals { get; set; }
 
+        public DbSet<Vehicle> Vehicles { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)

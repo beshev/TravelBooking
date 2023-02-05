@@ -56,5 +56,7 @@
         public virtual Baggage Baggage { get; set; }
 
         public virtual Animal Animal { get; set; }
+
+        public virtual Vehicle Vehicle { get; set; }
     }
 }

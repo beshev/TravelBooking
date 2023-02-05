@@ -1,0 +1,25 @@
+﻿@model BookingInputBaseModel
+
+
+<div class="col-md-4 offset-lg-4 text-center">
+    <form asp-action="Booking" asp-controller="Bookings" asp-area="">
+
+        <partial name="_BookingPartial" model="this.Model" />
+        <hr />
+        Vehicle Info
+        <hr />
+        <div class="form-group">
+            <label asp-for="Vehicle.Type"></label>
+            <span asp-validation-for="Vehicle.Type"></span>
+            <select asp-for="Vehicle.Type" class="form-select">
+                <<option value="Пистов">Пистов</option>
+                <<option value="Кросов">Кросов</option>
+                <<option value="Скутер">Скутер</option>
+            </select>
+        </div>
+
+         <div class="form-grup" style="margin-top: 2%;">
+            <input type="submit" class="btn btn-outline-dark" value="Create" />
+        </div>
+    </form>
+</div>

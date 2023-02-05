@@ -17,5 +17,8 @@
 
         // Animal
         public const int BreedMaxLength = 20;
+
+        // Vehicle
+        public const int VehicleTypeMaxLength = 60;
     }
 }

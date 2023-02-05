@@ -12,10 +12,20 @@
     public class BookingsService : IBookingsService
     {
         private readonly IDeletableEntityRepository<Booking> bookingRepository;
+        private readonly IDeletableEntityRepository<Animal> animalRepository;
+        private readonly IDeletableEntityRepository<Baggage> baggageRepository;
+        private readonly IDeletableEntityRepository<Vehicle> vehicleRepository;
 
-        public BookingsService(IDeletableEntityRepository<Booking> bookingRepository)
+        public BookingsService(
+            IDeletableEntityRepository<Booking> bookingRepository,
+            IDeletableEntityRepository<Animal> animalRepository,
+            IDeletableEntityRepository<Baggage> baggageRepository,
+            IDeletableEntityRepository<Vehicle> vehicleRepository)
         {
             this.bookingRepository = bookingRepository;
+            this.animalRepository = animalRepository;
+            this.baggageRepository = baggageRepository;
+            this.vehicleRepository = vehicleRepository;
         }
 
         public async Task CreateBookingAsync<TModel>(TModel model)
@@ -30,7 +40,25 @@
         {
             var booking = this.bookingRepository
                 .All()
+                .Include(x => x.Animal)
+                .Include(x => x.Baggage)
+                .Include(x => x.Vehicle)
                 .FirstOrDefault(x => x.Id.Equals(id));
+
+            if (booking.Animal is not null)
+            {
+                this.animalRepository.Delete(booking.Animal);
+            }
+
+            if (booking.Baggage is not null)
+            {
+                this.baggageRepository.Delete(booking.Baggage);
+            }
+
+            if (booking.Vehicle is not null)
+            {
+                this.vehicleRepository.Delete(booking.Vehicle);
+            }
 
             this.bookingRepository.Delete(booking);
             await this.bookingRepository.SaveChangesAsync();

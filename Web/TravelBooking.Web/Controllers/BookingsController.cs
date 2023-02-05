@@ -36,6 +36,12 @@
             return this.View();
         }
 
+        public IActionResult Vehicle()
+        {
+            this.TempData[GlobalConstants.ReturnUrlKey] = this.ReturnUrl;
+            return this.View();
+        }
+
         [HttpPost]
         [SetTempDataErrors(GlobalConstants.ModelStateErrorKey)]
         public async Task<IActionResult> Booking(BookingInputBaseModel model, string returnUrl)
