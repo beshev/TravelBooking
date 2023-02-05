@@ -5,60 +5,88 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/about.css">
+    <link rel="stylesheet" href="~/css/contact.css">
+    <link rel="stylesheet" href="~/css/flexslider.css">
+    <link rel="stylesheet" href="~/css/ionicons.css">
+    <link rel="stylesheet" href="~/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/css/main.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/css/owl.theme.css">
+    <link rel="stylesheet" href="~/css/section.css">
+    <link rel="stylesheet" href="~/css/services.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@GlobalConstants.SystemName</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Bookings" asp-action="Travel">Travel</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Bookings" asp-action="Animal">Animal</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Bookings" asp-action="Baggage">Baggage</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Bookings" asp-action="Vehicle">Vehicle</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
+                <a asp-action="Index" asp-controller="Home" asp-area="" class="navbar-brand" title="HOME"><i class="ion-paper-airplane"></i> euro <span>travel</span></a>
+            </div> <!-- /.navbar-header -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a asp-action="Index" asp-controller="Home" asp-area="">Home</a></li>
+                    <li><a asp-action="Travel" asp-controller="Bookings" asp-area="">Пътуване</a></li>
+                    <li><a asp-action="Animal" asp-controller="Bookings" asp-area="">Животно</a></li>
+                    <li><a asp-action="Baggage" asp-controller="Bookings" asp-area="">Багаж</a></li>
+                    <li><a asp-action="Vehicle" asp-controller="Bookings" asp-area="">Мотор</a></li>
+                </ul> <!-- /.nav -->
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+
+    <partial name="_CookieConsentPartial" />
+
+    @this.RenderBody()
+
+    <ul class="social-icon text-white">
+        <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+        <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+        <li><a href="#"><i class="ion-social-linkedin-outline"></i></a></li>
+        <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+    </ul>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4">
+                    <div class="text-left">
+                        &copy; Copyright Euro Travels
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    Theme by <a href="http://www.themewagon.com">THEMEWAGON</a>
+                </div>
+                <div class="col-xs-4">
+                    <div class="top">
+                        <a href="#header">
+                            <i class="ion-arrow-up-b"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
-            @this.RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js" asp-append-version="true"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
     <script src="~/js/site.min.js" asp-append-version="true"></script>
+    <script src="~/js/jquery-1.11.2.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/contact.js"></script>
+    <script src="~/js/jquery.flexslider.js"></script>
+    <script src="~/js/script.js"></script>
+
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
