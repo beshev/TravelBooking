@@ -2,48 +2,86 @@
 
 <input type="hidden" value="@this.TempData[GlobalConstants.ReturnUrlKey]" name="returnUrl" />
 <div class="text-danger">@this.TempData[GlobalConstants.ModelStateErrorKey]</div>
-<div class="form-group">
-    <label asp-for="FirstName"></label>
-    <span asp-validation-for="FirstName"></span>
-    <input asp-for="FirstName" class="form-control" />
+<div class="row">
+    <div class="col-md-6 margin-b">
+        <div class="input-group">
+            <input asp-for="FirstName" class="form-control border-radius border-right" placeholder="Име" required>
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+            <span class="input-group-addon  border-radius custom-addon">
+                <i class="ion-person"></i>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="input-group">
+            <input asp-for="LastName" class="form-control border-radius border-right" placeholder="Фамиля" required>
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+            <span class="input-group-addon  border-radius custom-addon">
+                <i class="ion-person"></i>
+            </span>
+        </div>
+    </div>
 </div>
-<div class="form-group">
-    <label asp-for="LastName"></label>
-    <span asp-validation-for="LastName"></span>
-    <input asp-for="LastName" class="form-control" />
+
+<div class="input-group" style="margin-top: 10px">
+    <input asp-for="PhoneNumber" class="form-control border-radius border-right" type="tel" placeholder="Телефон">
+    <span asp-validation-for="FirstName" class="text-danger"></span>
+    <span class="input-group-addon  border-radius custom-addon">
+        <i class="ion-ios-telephone"></i>
+    </span>
 </div>
-<div class="form-group">
-    <label asp-for="PhoneNumber"></label>
-    <span asp-validation-for="PhoneNumber"></span>
-    <input asp-for="PhoneNumber" class="form-control" />
-</div>
-<div class="form-group">
-    <label asp-for="OriginCountry"></label>
-    <span asp-validation-for="OriginCountry"></span>
-    <input asp-for="OriginCountry" class="form-control" />
-</div>
-<div class="form-group">
-    <label asp-for="OriginCity"></label>
-    <span asp-validation-for="OriginCity"></span>
-    <input asp-for="OriginCity" class="form-control" />
-</div>
-<div class="form-group">
-    <label asp-for="OriginAddress"></label>
-    <span asp-validation-for="OriginAddress"></span>
-    <input asp-for="OriginAddress" class="form-control" />
-</div>
-<div class="form-group">
-    <label asp-for="DestinationCountry"></label>
-    <span asp-validation-for="DestinationCountry"></span>
-    <input asp-for="DestinationCountry" class="form-control" />
-</div>
-<div class="form-group">
-    <label asp-for="DestinationCity"></label>
-    <span asp-validation-for="DestinationCity"></span>
-    <input asp-for="DestinationCity" class="form-control" />
-</div>
-<div class="form-group">
-    <label asp-for="DestinationAddress"></label>
-    <span asp-validation-for="DestinationAddress"></span>
-    <input asp-for="DestinationAddress" class="form-control" />
+
+<div class="row">
+    <div class="col-md-6">
+        <h5 style="color: black">От</h5>
+        <div class="input-group margin-b">
+            <input asp-for="OriginAddress" class="form-control border-radius border-right message" placeholder="От Адрес">
+            <span asp-validation-for="OriginAddress" class="text-danger"></span>
+            <span class="input-group-addon border-radius custom-addon">
+                <i class="ion-android-home"></i>
+            </span>
+        </div>
+        <div class="input-group">
+            <input asp-for="OriginCity" class="form-control border-radius border-right message" placeholder="От Град">
+            <span asp-validation-for="OriginCity" class="text-danger"></span>
+            <span class="input-group-addon border-radius custom-addon">
+                <i class="ion-location"></i>
+            </span>
+        </div>
+        <div class="input-group">
+            <select asp-for="OriginCountry" class="form-control border-radius border-right message" placeholder="От Държава">
+                <option>България</option>
+                <option>Германия</option>
+            </select>
+            <span class="input-group-addon border-radius custom-addon">
+                <i class="ion-paper-airplane"></i>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h5 style="color: black">До</h5>
+        <div class="input-group">
+            <input asp-for="DestinationAddress" class="form-control border-radius border-right message" placeholder="До Адрес">
+            <span asp-validation-for="DestinationAddress" class="text-danger"></span>
+            <span class="input-group-addon border-radius custom-addon">
+                <i class="ion-android-home"></i>
+            </span>
+        </div>
+        <div class="input-group">
+            <input asp-for="DestinationCity" class="form-control border-radius border-right message" placeholder="До Град">
+            <span asp-validation-for="DestinationCity" class="text-danger"></span>
+            <span class="input-group-addon border-radius custom-addon">
+                <i class="ion-location"></i>
+            </span>
+        </div>
+        <div class="input-group">
+            <select asp-for="DestinationCountry" class="form-control border-radius border-right message" placeholder="От Град">
+                <option>България</option>
+                <option>Германия</option>
+            </select>
+            <span class="input-group-addon border-radius custom-addon">
+                <i class="ion-paper-airplane"></i>
+            </span>
+        </div>
+    </div>
 </div>

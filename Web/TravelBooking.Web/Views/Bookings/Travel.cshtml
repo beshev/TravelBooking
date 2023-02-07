@@ -1,13 +1,21 @@
 ﻿@model BookingInputBaseModel
 
+@{
+    this.ViewData["Title"] = "Пътуване";
+}
 
-<div class="col-md-4 offset-lg-4 text-center">
-    <form asp-action="Booking" asp-controller="Bookings" asp-area="">
-        <input type="hidden" value="@this." name="returnUrl" />
-        <partial name="_BookingPartial" model="this.Model" />
-
-         <div class="form-grup" style="margin-top: 2%;">
-            <input type="submit" class="btn btn-outline-dark" value="Create" />
+<section class="section-wrapper contact-and-map">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-md-offset-3">
+                <h2 class="section-title" style="text-align: center;">
+                    Запази пътуване
+                </h2>
+                <form asp-action="Booking" asp-controller="Bookings" asp-area="" class="form text-center">
+                    <partial name="_BookingPartial" model="this.Model" />
+                    <input type="submit" class="btn btn-default border-radius custom-button" value="Запази" />
+                </form>
+            </div> <!-- /.col-sm-6 -->
         </div>
-    </form>
-</div>
+    </div>
+</section>
