@@ -39,8 +39,15 @@
                     <li><a asp-action="Animal" asp-controller="Bookings" asp-area="">Животно</a></li>
                     <li><a asp-action="Baggage" asp-controller="Bookings" asp-area="">Багаж</a></li>
                     <li><a asp-action="Vehicle" asp-controller="Bookings" asp-area="">Мотор</a></li>
-                    <li><a asp-area="Identity" asp-page="/Account/Login">Вход</a></li>
-                    <li><a asp-area="Identity" asp-page="/Account/Register">Регистрация</a></li>
+                    @if (!this.User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="Identity" asp-page="/Account/Login">Вход</a></li>
+                        <li><a asp-area="Identity" asp-page="/Account/Register">Регистрация</a></li>
+                    }
+                    else
+                    {
+                       <li><a asp-area="Identity" asp-page="/Account/Logout">Изход</a></li> 
+                    }
                 </ul> <!-- /.nav -->
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->

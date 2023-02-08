@@ -1,10 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-#nullable disable
+﻿#nullable disable
 
 namespace TravelBooking.Data.Migrations
 {
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class VehicleTableAdded : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

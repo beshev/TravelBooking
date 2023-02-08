@@ -1,10 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-#nullable disable
+﻿#nullable disable
 
 namespace TravelBooking.Data.Migrations
 {
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class InitialCreated : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -37,7 +38,7 @@ namespace TravelBooking.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -59,7 +60,7 @@ namespace TravelBooking.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -84,7 +85,7 @@ namespace TravelBooking.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -156,7 +157,7 @@ namespace TravelBooking.Data.Migrations
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true),
                 },
                 constraints: table =>
                 {
