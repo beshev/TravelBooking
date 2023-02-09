@@ -46,7 +46,12 @@
                     }
                     else
                     {
-                       <li><a asp-area="Identity" asp-page="/Account/Logout">Изход</a></li> 
+                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        {
+                            <li><a asp-action="Index" asp-controller="Dashboard" asp-area="@GlobalConstants.AdministrationArea">Админ</a></li>
+                        }
+
+                        <li><a asp-area="Identity" asp-page="/Account/Logout">Изход</a></li>
                     }
                 </ul> <!-- /.nav -->
             </div><!-- /.navbar-collapse -->
@@ -61,7 +66,7 @@
     <section class="contacts section-wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-4" style="margin-bottom: 20px">
                     <div class="contact">
                         <div class="contact-icon">
                             <i class="ion-android-map"></i>
@@ -75,7 +80,7 @@
                         </div>
                     </div> <!-- /.contact -->
                 </div> <!-- /.col-sm-4 -->
-                <div class="col-sm-4">
+                <div class="col-sm-4" style="margin-bottom: 20px">
                     <div class="contact">
                         <div class="contact-icon">
                             <i class="ion-ios-telephone"></i>
