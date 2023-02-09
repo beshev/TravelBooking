@@ -38,6 +38,8 @@
 
         public const string ReturnUrlKey = "ReturnUrl";
 
+        public const string HomeReturnUrl = "/home";
+
         // Errors
         public const string RequiredField = "Полето е задължително";
 
