@@ -15,7 +15,12 @@
             this.bookingsService = bookingsService;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
+        {
+            return this.View();
+        }
+
+        public async Task<IActionResult> Bookings()
         {
             var viewModel = await this.bookingsService.GetAllAsync<BookingViewModel>();
             return this.View(viewModel);
@@ -24,7 +29,7 @@
         public async Task<IActionResult> Remove(string id)
         {
             await this.bookingsService.DeleteBookingAsync(id);
-            return this.RedirectToAction(nameof(this.Index));
+            return this.RedirectToAction(nameof(this.Bookings));
         }
     }
 }

@@ -4,6 +4,8 @@
     {
         public const string SystemName = "TravelBooking";
 
+        public const string Title = "Title";
+
         public const string AdministratorRoleName = "Administrator";
 
         public const string AdministrationArea = "Administration";
