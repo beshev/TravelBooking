@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TravelBooking.Common;
 using TravelBooking.Data;
 using TravelBooking.Data.Common;
 using TravelBooking.Data.Common.Repositories;
@@ -52,6 +53,8 @@ public class Program
             {
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             }).AddRazorRuntimeCompilation();
+
+        services.AddAntiforgery(options => options.HeaderName = GlobalConstants.AntiforgeryHeaderName);
         services.AddRazorPages();
         services.AddDatabaseDeveloperPageExceptionFilter();
 

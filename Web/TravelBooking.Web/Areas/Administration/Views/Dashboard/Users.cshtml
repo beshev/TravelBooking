@@ -1,0 +1,79 @@
+﻿@model IEnumerable<UserViewModel>
+
+@{
+    this.ViewData[GlobalConstants.Title] = "Потребители";
+}
+
+
+<section class="contacts section-wrapper">
+    <div class="container custom-con">
+        <div class="row">
+            <h1 class="text-center" style="color: black">@this.ViewData[GlobalConstants.Title]</h1>
+            @foreach (var user in this.Model)
+            {
+                <div class="col-sm-3 col-md-3 col-lg-3 col-12" style="margin-bottom: 20px">
+                    <div class="contact">
+                        <div class="contact-icon">
+                            <i class="ion-person"></i>
+                        </div>
+                        <div class="contact-name">
+                            <strong>Имейл: @user.Email</strong>
+                        </div>
+                        <div class="contact-icon" id="@user.Id">
+                            @user.Rate
+                        </div>
+                        <div class="row">
+                            <div class="contact-icon col-6 col-md-6 col-lg-6 col-sm-6 text-center">
+                                <a userId="@user.Id" href="javascript:void(0)" class="posite-vote" style="color: green"><i class="ion-android-arrow-up"></i></a>
+                            </div>
+                            <div class="contact-icon col-6 col-md-6 col-lg-6 col-sm-6">
+                                <a userId="@user.Id" href="javascript:void(0)" class="negative-vote" style="color: red"><i class="ion-android-arrow-down"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<form method="post" id="vote-form"></form>
+
+
+@section Scripts {
+<script>
+    var positiveVotes = [...document.querySelectorAll('.posite-vote')];
+    var negativeVotes = [...document.querySelectorAll('.negative-vote')];
+
+    positiveVotes.forEach(el => {
+        let userId = el.getAttribute('userid');
+        el.addEventListener('click', vote.bind(this, userId, true));
+    })
+
+    negativeVotes.forEach(el => {
+        let userId = el.getAttribute('userid');
+        el.addEventListener('click', vote.bind(this, userId, false));
+    })
+
+    let token = $("#vote-form input[name=__RequestVerificationToken]").val();
+    function vote(userId, isPositive) {
+        let json = {
+            UserId: userId,
+            IsPositive: isPositive
+        }
+        let data = JSON.stringify(json);
+
+        console.log(data)
+        $.ajax({
+             method: "POST",
+             url: `/api/UserVote`,
+             data: data,
+             headers: {'X-CSRF-TOKEN': token},
+             contentType: "application/json",
+             success: function(vote) {
+                 $(`#${userId}`).html(vote);
+             },
+        });
+    }
+</script>
+}

@@ -2,6 +2,8 @@
 {
     public static class GlobalConstants
     {
+        public const string AntiforgeryHeaderName = "X-CSRF-TOKEN";
+
         public const string SystemName = "TravelBooking";
 
         public const string Title = "Title";
