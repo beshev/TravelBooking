@@ -11,6 +11,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.Extensions.Logging;
+    using TravelBooking.Common;
     using TravelBooking.Data.Models;
 
     [AllowAnonymous]
@@ -42,15 +43,15 @@
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = GlobalConstants.RequiredField)]
             [EmailAddress]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = GlobalConstants.RequiredField)]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Запомни ме?")]
             public bool RememberMe { get; set; }
         }
 
@@ -100,7 +101,7 @@
                 }
                 else
                 {
-                    this.ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    this.ModelState.AddModelError(string.Empty, GlobalConstants.InvalidUsernameOrPasswordErrorMessage);
                     return this.Page();
                 }
             }
