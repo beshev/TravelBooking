@@ -7,6 +7,6 @@
     {
         public Task<IEnumerable<TModel>> GetAllAsync<TModel>();
 
-        public Task Vote<TModel>(string userId, bool isPositive);
+        public Task<int> Vote<TModel>(string userId, bool isPositive);
     }
 }

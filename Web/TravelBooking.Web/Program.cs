@@ -71,12 +71,12 @@ public class Program
     private static void Configure(WebApplication app)
     {
         // Seed data on application startup
-        using (var serviceScope = app.Services.CreateScope())
-        {
-            var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            dbContext.Database.Migrate();
-            new ApplicationDbContextSeeder().SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
-        }
+        // using (var serviceScope = app.Services.CreateScope())
+        // {
+        //     var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        //     dbContext.Database.Migrate();
+        //     new ApplicationDbContextSeeder().SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
+        // }
 
         AutoMapperConfig.RegisterMappings(typeof(ErrorViewModel).GetTypeInfo().Assembly);
 
