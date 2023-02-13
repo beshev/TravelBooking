@@ -1,6 +1,7 @@
 ﻿namespace TravelBooking.Services.Data.Users
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using Microsoft.EntityFrameworkCore;
@@ -17,20 +18,24 @@
             this.usersRepository = usersRepository;
         }
 
-        public async Task<IEnumerable<TModel>> GetAllAsync<TModel>()
+        public async Task<IEnumerable<TModel>> GetAllAsync<TModel>(string currentUserId = null)
         {
-            return await this.usersRepository
-                .AllAsNoTracking()
-                .To<TModel>()
-                .ToListAsync();
+            var query = this.usersRepository
+                .AllAsNoTracking();
+
+            if (!string.IsNullOrWhiteSpace(currentUserId))
+            {
+                query = query.Where(x => !x.Id.Equals(currentUserId));
+            }
+
+            return await query.To<TModel>().ToListAsync();
         }
 
-        // TODO: Make this AJAX
-        public async Task<int> Vote<TModel>(string userId, bool isPositive)
+        public async Task<int> VoteAsync(string userId, bool isPositive)
         {
             var user = await this.usersRepository
                 .All()
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(x => x.Id.Equals(userId));
 
             user.Rate = isPositive
                 ? ++user.Rate

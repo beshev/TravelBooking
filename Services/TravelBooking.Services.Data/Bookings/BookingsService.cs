@@ -75,6 +75,7 @@
             }
 
             return await query
+                .OrderByDescending(x => x.CreatedOn)
                 .To<TModel>()
                 .ToListAsync();
         }

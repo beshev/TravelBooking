@@ -5,8 +5,8 @@
 
     public interface IUsersService
     {
-        public Task<IEnumerable<TModel>> GetAllAsync<TModel>();
+        public Task<IEnumerable<TModel>> GetAllAsync<TModel>(string currentUserId = null);
 
-        public Task<int> Vote<TModel>(string userId, bool isPositive);
+        public Task<int> VoteAsync(string userId, bool isPositive);
     }
 }

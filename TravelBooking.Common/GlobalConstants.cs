@@ -2,6 +2,8 @@
 {
     public static class GlobalConstants
     {
+        public const string AntiforgeryHeaderName = "X-CSRF-TOKEN";
+
         public const string SystemName = "TravelBooking";
 
         public const string Title = "Title";
@@ -46,5 +48,9 @@
         public const string RequiredField = "Полето е задължително";
 
         public const string ModelStateErrorKey = "ModelStateErrors";
+
+        public const string InvalidUsernameOrPasswordErrorMessage = "Грешно потребителско име или парола.";
+
+        public const string InvalidEmailErrorMessage = "Невалиден имейл.";
     }
 }

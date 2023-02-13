@@ -1,4 +1,8 @@
-﻿<!-- Home -->
+﻿@{
+    this.ViewData[GlobalConstants.Title] = "Начало";
+}
+
+<!-- Home -->
 <div id="header">
     <div class="flexslider">
         <ul class="slides">
@@ -21,7 +25,7 @@
                         <h1 class="header-title">
                             <span>багаж</span>
                         </h1>
-                        <a asp-action="Travel" asp-controller="Bookings" class="btn custom-btn">
+                        <a asp-action="Baggage" asp-controller="Bookings" class="btn custom-btn">
                             изпрати
                         </a>
                     </div>
@@ -55,124 +59,7 @@
         </ul> <!-- /.slides -->
     </div> <!-- /.flexslider -->
 </div> <!-- /#header -->
-<!-- Find a Tour -->
-@*<section class="tour section-wrapper container">
-    <h2 class="section-title">
-        Find a Tour
-    </h2>
-    <p class="section-subtitle">
-        Where would you like to go?
-    </p>
-    <div class="row">
-        <div class="col-md-3 col-sm-6">
-            <form role="form" class="form-dropdown">
-                <div class="form-group">
-                    <label for="sel1">Select list (select one):</label>
-                    <select class="form-control border-radius" id="sel1">
-                        <option>America</option>
-                        <option>Bangladesh</option>
-                        <option>Canada</option>
-                        <option>India</option>
-                    </select>
-                </div>
-            </form>
-        </div>
 
-        <div class="col-md-3 col-sm-6">
-            <div class="input-group">
-                <input type="text" class="form-control border-radius border-right" placeholder="Arrival" />
-                <span class="input-group-addon border-radius custom-addon">
-                    <i class="ion-ios-calendar"></i>
-                </span>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6">
-            <div class="input-group">
-                <input type="text" class="form-control border-radius border-right" placeholder="Departure" />
-                <span class="input-group-addon border-radius custom-addon">
-                    <i class="ion-ios-calendar"></i>
-                </span>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6">
-            <div class="btn btn-default border-radius custom-button">
-                Search
-            </div>
-        </div>
-    </div>
-</section> *@
-<!-- /.tour -->
-<!-- Our Blazzing offers -->
-<@*section class="offer section-wrapper">
-    <div class="container">
-        <h2 class="section-title">
-            Our Blazzing offers
-        </h2>
-        <p class="section-subtitle">
-            Lorem Ipsum is simply dummy text of the industry.
-        </p>
-        <div class="row">
-            <div class="col-sm-3 col-xs-6">
-                <div class="offer-item">
-                    <div class="icon">
-                        <i class="ion-social-euro"></i>
-                    </div>
-                    <h3>
-                        Affordable Pricing
-                    </h3>
-                    <p>
-                        Class aptent taciti sociosutn tora torquent conub nost reptos himenaeos.
-                    </p>
-                </div>
-            </div> <!-- /.col-md-3 -->
-
-            <div class="col-sm-3 col-xs-6">
-                <div class="offer-item">
-                    <div class="icon">
-                        <i class="ion-ios-home"></i>
-                    </div>
-                    <h3>
-                        High class Hotels
-                    </h3>
-                    <p>
-                        Class aptent taciti sociosutn tora torquent conub nost reptos himenaeos.
-                    </p>
-                </div>
-            </div> <!-- /.col-md-3 -->
-
-            <div class="col-sm-3 col-xs-6">
-                <div class="offer-item">
-                    <div class="icon">
-                        <i class="ion-android-bus"></i>
-                    </div>
-                    <h3>
-                        Luxury Transport
-                    </h3>
-                    <p>
-                        Class aptent taciti sociosutn tora torquent conub nost reptos himenaeos.
-                    </p>
-                </div>
-            </div> <!-- /.col-md-3 -->
-
-            <div class="col-sm-3 col-xs-6">
-                <div class="offer-item">
-                    <div class="icon">
-                        <i class="ion-ios-locked"></i>
-                    </div>
-                    <h3>
-                        Highest Security
-                    </h3>
-                    <p>
-                        Class aptent taciti sociosutn tora torquent conub nost reptos himenaeos.
-                    </p>
-                </div>
-            </div> <!-- /.col-md-3 -->
-        </div> <!-- /.row -->
-    </div> <!-- /.container -->
-</section> *@
-<!-- /.offer -->
 <!-- Top place to visit -->
 <section class="visit section-wrapper">
     <div class="container">
@@ -201,6 +88,9 @@
             </div>
             <div class="item">
                 <img src="./images/visit-3.png" alt="visit-image" class="img-responsive visit-item">
+            </div>
+            <div class="item">
+                <img src="~/images/test.jpg" alt="visit-image" class="img-responsive visit-item" style="height: 408px;">
             </div>
         </div>
     </div> <!-- /.container -->
