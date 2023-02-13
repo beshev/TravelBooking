@@ -4,9 +4,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
     <title>@this.ViewData[@GlobalConstants.Title] - @GlobalConstants.SystemName</title>
     <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/about.css">
     <link rel="stylesheet" href="~/css/contact.css">
     <link rel="stylesheet" href="~/css/flexslider.css">
@@ -34,11 +36,17 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a asp-action="Index" asp-controller="Home" asp-area="">Начало</a></li>
-                    <li><a asp-action="Travel" asp-controller="Bookings" asp-area="">Пътуване</a></li>
-                    <li><a asp-action="Animal" asp-controller="Bookings" asp-area="">Животно</a></li>
-                    <li><a asp-action="Baggage" asp-controller="Bookings" asp-area="">Багаж</a></li>
-                    <li><a asp-action="Vehicle" asp-controller="Bookings" asp-area="">Мотор</a></li>
+                    <li><a asp-action="Index" asp-controller="Home" asp-area="">Home</a></li>
+                     <li class="dropdown">
+                   <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">Запази за  
+                    <i class="fa fa-caret-down"></i></a>
+                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a  class="dropdown-item" asp-action="Travel" asp-controller="Bookings" asp-area="">Пътуване</a>
+                    <a  class="dropdown-item" asp-action="Baggage" asp-controller="Bookings" asp-area="">Багаж</a>
+                    <a  class="dropdown-item" asp-action="Animal" asp-controller="Bookings" asp-area="">Животно</a>
+                    <a  class="dropdown-item"  asp-action="Vehicle" asp-controller="Bookings" asp-area="">Мотор</a>
+                     </div>
+                     </li>
                     @if (!this.User.Identity.IsAuthenticated)
                     {
                         <li><a asp-area="Identity" asp-page="/Account/Login">Вход</a></li>
@@ -152,5 +160,6 @@
     <script src="~/js/script.js"></script>
 
     @await this.RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>
