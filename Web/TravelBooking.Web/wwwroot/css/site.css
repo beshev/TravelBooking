@@ -171,3 +171,8 @@ body {
     border-width: 2px;
     border-style: solid;
 }
+
+.footer {
+    bottom: -2%;
+    line-height: 27px;
+}
