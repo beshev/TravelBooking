@@ -31,6 +31,14 @@
     </span>
 </div>
 
+<div class="input-group" style="margin-top: 10px">
+    <textarea asp-for="CustomerNote" class="form-control border-radius border-right" rows="5" placeholder="Бележка към заявката. Полето не е задължително"></textarea>
+    <span asp-validation-for="CustomerNote" class="text-danger"></span>
+    <span class="input-group-addon  border-radius custom-addon">
+        <i class="ion-android-bookmark"></i>
+    </span>
+</div>
+
 <div class="row">
     <div class="col-md-6">
         <h5 style="color: black">От</h5>

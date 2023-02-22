@@ -23,6 +23,9 @@
         [Display(Name = GlobalConstants.PhoneNumber)]
         public string PhoneNumber { get; set; }
 
+        [Display(Name = GlobalConstants.CustomerNote)]
+        public string CustomerNote { get; set; }
+
         [Required(ErrorMessage = GlobalConstants.RequiredField)]
         [MaxLength(DataConstants.CountryMaxLength)]
         [Display(Name = GlobalConstants.OriginCountry)]

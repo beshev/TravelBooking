@@ -18,6 +18,8 @@
 
         public const string PhoneNumber = "Телефон";
 
+        public const string CustomerNote = "Бележка към заявката";
+
         public const string OriginCountry = "От";
 
         public const string OriginAddress = "От адрес";
