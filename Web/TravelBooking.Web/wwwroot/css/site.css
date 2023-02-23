@@ -197,3 +197,9 @@ body {
     left: 30px;
   }
 }
+
+.custom-border {
+    border: #60c9eb;
+    border-width: 2px;
+    border-style: solid;
+}
