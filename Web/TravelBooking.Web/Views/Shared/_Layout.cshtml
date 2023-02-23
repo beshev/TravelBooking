@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
     <title>@this.ViewData[@GlobalConstants.Title] - @GlobalConstants.SystemName</title>
-    <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/about.css">
@@ -19,6 +18,7 @@
     <link rel="stylesheet" href="~/css/owl.theme.css">
     <link rel="stylesheet" href="~/css/section.css">
     <link rel="stylesheet" href="~/css/services.css">
+    <link rel="stylesheet" href="~/css/site.css">
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -37,16 +37,18 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a asp-action="Index" asp-controller="Home" asp-area="">Home</a></li>
-                     <li class="dropdown">
-                   <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">Запази за  
-                    <i class="fa fa-caret-down"></i></a>
-                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a  class="dropdown-item" asp-action="Travel" asp-controller="Bookings" asp-area="">Пътуване</a>
-                    <a  class="dropdown-item" asp-action="Baggage" asp-controller="Bookings" asp-area="">Багаж</a>
-                    <a  class="dropdown-item" asp-action="Animal" asp-controller="Bookings" asp-area="">Животно</a>
-                    <a  class="dropdown-item"  asp-action="Vehicle" asp-controller="Bookings" asp-area="">Мотор</a>
-                     </div>
-                     </li>
+                    <li class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                            Запази за
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" asp-action="Travel" asp-controller="Bookings" asp-area="">Пътуване</a>
+                            <a class="dropdown-item" asp-action="Baggage" asp-controller="Bookings" asp-area="">Багаж</a>
+                            <a class="dropdown-item" asp-action="Animal" asp-controller="Bookings" asp-area="">Домашен любимец</a>
+                            <a class="dropdown-item" asp-action="Vehicle" asp-controller="Bookings" asp-area="">Мотор</a>
+                        </div>
+                    </li>
                     @if (!this.User.Identity.IsAuthenticated)
                     {
                         <li><a asp-area="Identity" asp-page="/Account/Login">Вход</a></li>
@@ -74,79 +76,56 @@
     <section class="contacts section-wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4" style="margin-bottom: 20px">
-                    <div class="contact">
-                        <div class="contact-icon">
-                            <i class="ion-android-map"></i>
-                        </div>
-                        <div class="contact-name">
-                            Address
-                        </div>
-                        <div class="contact-detail">
-                            Asowld Avenew P.O Box <br>
-                            353 Mountain View. United States of America.
-                        </div>
-                    </div> <!-- /.contact -->
+                <div class="col-sm-6" style="margin-bottom: 20px">
+                    <a target="_blank" href="https://www.facebook.com/Europe.Transporter/?modal=admin_todo_tour&notif_id=1674158976829818&notif_t=page_invite&ref=notif" style="font-size: 40px; text-decoration: none;">
+                        <div class="contact">
+                            <div class="contact-icon">
+                                <i class="ion-social-facebook"></i>
+                            </div>
+                            <div class="contact-detail" style="font-size: 40px; padding-top: 103px;">
+                                Facebook
+                            </div>
+                        </div> <!-- /.contact -->
+                    </a>
                 </div> <!-- /.col-sm-4 -->
-                <div class="col-sm-4" style="margin-bottom: 20px">
-                    <div class="contact">
-                        <div class="contact-icon">
-                            <i class="ion-ios-telephone"></i>
-                        </div>
-                        <div class="contact-name">
-                            Phone
-                        </div>
-                        <div class="contact-detail">
-                            Local: 1-800-523-hello <br>
-                            Mobile: 1-400-623-hello
-                        </div>
-                    </div> <!-- /.contact -->
-                </div> <!-- /.col-sm-4 -->
-                <div class="col-sm-4">
-                    <div class="contact">
-                        <div class="contact-icon">
-                            <i class="ion-email"></i>
-                        </div>
-                        <div class="contact-name">
-                            Email Address
-                        </div>
-                        <div class="contact-detail">
-                            info@themewagon.com <br>
-                            <a href="http://www.themewagon.com">www.themewagon.com</a>
-                        </div>
-                    </div> <!-- /.contact -->
+                <div class="col-sm-6" style="margin-bottom: 20px">
+                    <a href="tel:00879886033" style="text-decoration: none">
+                        <div class="contact">
+                            <div class="contact-icon">
+                                <i class="ion-ios-telephone"></i>
+                            </div>
+                            <div class="contact-detail" style="font-size: 40px; padding-top: 103px;">
+                                0879886033
+                            </div>
+                        </div> <!-- /.contact -->
+                    </a>
                 </div> <!-- /.col-sm-4 -->
             </div> <!-- /.row -->
         </div> <!-- /.container -->
-        <ul class="social-icon text-white">
-            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-            <li><a href="https://www.facebook.com/Europe.Transporter/?modal=admin_todo_tour&notif_id=1674158976829818&notif_t=page_invite&ref=notif"><i class="ion-social-facebook"></i></a></li>
-            <li><a href="#"><i class="ion-social-linkedin-outline"></i></a></li>
-            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-        </ul>
     </section>
     <!-- /.contacts -->
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-4">
-                    <div class="text-left">
-                        &copy; Copyright Euro Travels
+        <!-- Your bottom bar content here -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="text-left">
+                            &copy; Copyright Euro Travels
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-4">
-                </div>
-                <div class="col-xs-4">
-                    <div class="top">
-                        <a href="#header">
-                            <i class="ion-arrow-up-b"></i>
-                        </a>
+                    <div class="col-xs-4">
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="top">
+                            <a href="#header">
+                                <i class="ion-arrow-up-b"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>

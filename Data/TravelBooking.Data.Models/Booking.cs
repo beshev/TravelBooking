@@ -26,6 +26,9 @@
         public string PhoneNumber { get; set; }
 
         [Required]
+        public string CustomerNote { get; set; }
+
+        [Required]
         [MaxLength(DataConstants.CountryMaxLength)]
         public string OriginCountry { get; set; }
 
