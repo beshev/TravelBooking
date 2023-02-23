@@ -84,6 +84,7 @@ a.navbar-brand {
     text-align: center;
     text-decoration: none;
     border-radius: 8px;
+    font-size: 13px;
   }
   
   .dropdown-item:hover {
@@ -157,7 +158,8 @@ body {
     bottom: 0;
     width: 100%;
     white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there  */
+    bottom: -2%;
+    line-height: 27px;
 }
 
 @media(min-width: 1600px ) {
@@ -165,14 +167,33 @@ body {
         width: 1800px;
     }
 }
+@media (max-width: 800px) {
+  ul.nav.navbar-nav.navbar-right {
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    justify-content: center;
+    }
 
-.custom-border {
-    border: #60c9eb;
-    border-width: 2px;
-    border-style: solid;
-}
+  a#dropdownMenuLink {
+    width: 100px;
+    right: 20px;
+  }
 
-.footer {
-    bottom: -2%;
-    line-height: 27px;
+  a.dropdown-item {
+    width: 159px;
+    text-align: end;
+    font-size: 13px;
+    padding-right: 20px;
+  }
+
+  .dropdown:hover div.dropdown-menu {
+    display: contents;
+    color: #60c9eb;
+    border-radius: 8px;
+  }
+
+  .dropdown:hover #dropdownMenuLink {
+    left: 30px;
+  }
 }
