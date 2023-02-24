@@ -12,7 +12,7 @@
             @foreach (var booking in this.Model)
             {
                 <div class="col-sm-3 col-md-3 col-lg-3 col-12" style="margin-bottom: 20px;">
-                    <div class="contact custom-border booking" style="padding: 0px; height: 620px">
+                    <div class="contact custom-border booking" style="padding: 0px; height: 850px">
                         <div class="contact-icon">
                             <i class="ion-document-text"></i>
                         </div>
@@ -58,7 +58,13 @@
                                 <br />
                                 <text> @booking.Vehicle.Type</text>
                             }
-                            <br /> <strong>Бележка:</strong> <span class="note">@string.Join(" ", System.Linq.Enumerable.Repeat(@booking?.CustomerNote, 5))</span><br />
+                            <br />
+                            <div class="row">
+                                <strong>Бележка:</strong>
+                                <div class="customer-note col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <span class="note">@booking?.CustomerNote</span><br />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <a asp-action="Remove" asp-controller="Dashboard" asp-area="@GlobalConstants.AdministrationArea" asp-route-id="@booking.Id" class="btn btn-danger" style="position: relative;bottom: 50px;">Премахни</a>
@@ -67,25 +73,3 @@
         </div>
     </div>
 </section>
-
-@section Scripts{
-<script>
-    let bookings = [...document.querySelectorAll('.booking')];
-    let maxLeght = 0;
-    bookings.forEach(el => {
-        let note = el.querySelector('.note');
-        let lenght = note.offsetHeight;
-        if(lenght > maxLeght){
-            maxLeght = lenght;
-        }
-    })
-
-    bookings.forEach(el => {
-        let elHeight = el.style.height;
-        elHeight = (parseInt(elHeight) + maxLeght);
-
-        el.style.height = elHeight + 'px';
-        console.log(el.style.height);
-    })
-</script>
-}
