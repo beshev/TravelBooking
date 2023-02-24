@@ -5,6 +5,8 @@ services:
     environment:
     - ACCEPT_EULA=Y
     - MSSQL_SA_PASSWORD={0}
+    volumes:
+    - ./data:/var/opt/mssql/data
     ports:
     - '1433:1433'
 
