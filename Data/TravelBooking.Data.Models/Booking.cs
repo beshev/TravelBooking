@@ -25,7 +25,6 @@
         [MaxLength(DataConstants.PhoneNumberMaxLength)]
         public string PhoneNumber { get; set; }
 
-        [Required]
         public string CustomerNote { get; set; }
 
         [Required]

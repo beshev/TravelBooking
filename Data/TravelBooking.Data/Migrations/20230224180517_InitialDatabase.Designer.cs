@@ -12,8 +12,8 @@ using TravelBooking.Data;
 namespace TravelBooking.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230131172209_InitialCreated")]
-    partial class InitialCreated
+    [Migration("20230224180517_InitialDatabase")]
+    partial class InitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -340,6 +340,9 @@ namespace TravelBooking.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CustomerNote")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
@@ -401,6 +404,42 @@ namespace TravelBooking.Data.Migrations
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("Bookings");
+                });
+
+            modelBuilder.Entity("TravelBooking.Data.Models.Vehicle", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("BookingId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookingId")
+                        .IsUnique();
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("Vehicles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -485,6 +524,17 @@ namespace TravelBooking.Data.Migrations
                     b.Navigation("ApplicationUser");
                 });
 
+            modelBuilder.Entity("TravelBooking.Data.Models.Vehicle", b =>
+                {
+                    b.HasOne("TravelBooking.Data.Models.Booking", "Booking")
+                        .WithOne("Vehicle")
+                        .HasForeignKey("TravelBooking.Data.Models.Vehicle", "BookingId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Booking");
+                });
+
             modelBuilder.Entity("TravelBooking.Data.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Bookings");
@@ -501,6 +551,8 @@ namespace TravelBooking.Data.Migrations
                     b.Navigation("Animal");
 
                     b.Navigation("Baggage");
+
+                    b.Navigation("Vehicle");
                 });
 #pragma warning restore 612, 618
         }

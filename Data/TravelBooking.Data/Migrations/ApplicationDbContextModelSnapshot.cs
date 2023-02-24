@@ -339,7 +339,6 @@ namespace TravelBooking.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CustomerNote")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("DeletedOn")
