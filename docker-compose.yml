@@ -11,7 +11,7 @@ services:
     - '1433:1433'
 
   travel-web:
-    image: travel-image
+    image: beshev/travel-image
     environment:
     - ConnectionStrings__DefaultConnection=Server=mssql;Database=TravelBooking;User Id=sa;Password={0}
     - ASPNETCORE_ENVIRONMENT=Development
